@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FERREMAS | Tu Ferretería</title>
+    <style>
+        /* Estilos rápidos para que se vea profesional */
+        body { font-family: sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
+        header { background: #2c3e50; color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; }
+        header a { color: white; text-decoration: none; margin-left: 15px; font-weight: bold; }
+        header a:hover { color: #ff6600; }
+        .logo { font-size: 1.5rem; }
+        .logo span { color: #ff6600; }
+        .container { padding: 20px 5%; }
+        .btn-main { background: #ff6600; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; }
+        hr { border: 0; height: 1px; background: #ddd; margin: 20px 0; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">FERRE<span>MAS</span></div>
+    <nav>
+        <a href="/">Inicio</a>
+        {% if user.is_authenticated %}
+            <span>Bienvenido, <strong>{{ user.username }}</strong></span>
+            <a href="/carrito/">Carrito</a>
+            <a href="/logout/">Salir</a>
+        {% else %}
+            <a href="/login/">Entrar</a>
+            <a href="/registro/">Registrarse</a>
+        {% endif %}
+    </nav>
+</header>
+
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+
+<footer>
+    <p style="text-align: center; color: #888; margin-top: 50px;">&copy; 2026 FERREMAS - Chile</p>
+</footer>
+
+</body>
+</html>

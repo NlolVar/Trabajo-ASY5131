@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>FERREMAX</h1>
+
+{% for p in productos %}
+    <div>
+        {{ p.nombre }} - ${{ p.precio }}
+        <a href="/agregar/{{ p.id }}/">Agregar</a>
+    </div>
+{% endfor %}
+
+{% endblock %}

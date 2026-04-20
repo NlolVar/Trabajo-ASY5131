@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Carrito</h2>
+
+{% if carrito %}
+    {% for item in carrito.items.all %}
+        {{ item.producto.nombre }} x {{ item.cantidad }}<br>
+    {% endfor %}
+
+    <p>Total: {{ total }}</p>
+
+    <a href="/pedido/">Comprar</a>
+{% endif %}
+
+{% endblock %}

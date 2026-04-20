@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section style="display: flex; justify-content: center; align-items: center; min-height: 80vh; background: #f4f4f4;">
+    <div style="background: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 400px;">
+        <h2 style="color: #2c3e50; text-align: center; margin-bottom: 20px;">Únete a <span style="color: #ff6600;">FERREMAS</span></h2>
+        
+        <form method="POST">
+            {% csrf_token %}
+            <!-- Esto genera los campos de nombre y contraseña -->
+            {{ form.as_p }}
+            
+            <button type="submit" style="background: #ff6600; color: white; border: none; padding: 12px; width: 100%; border-radius: 5px; font-weight: bold; cursor: pointer; margin-top: 10px;">
+                Crear Cuenta
+            </button>
+        </form>
+
+        <p style="text-align: center; margin-top: 20px; font-size: 0.9rem;">
+            ¿Ya tienes cuenta? <a href="{% url 'login' %}" style="color: #2c3e50; font-weight: bold;">Inicia sesión aquí</a>
+        </p>
+    </div>
+</section>
+{% endblock %}
